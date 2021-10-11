@@ -10,21 +10,21 @@ export default class MusicTable extends React.Component {
         release_date: ''
     };
 
-handleChange = event => {
-    this.setState({ title: event.target.value })
-}
-
 handleSubmit = event => {
     event.preventDefault();
 
     const user = {
-        title: this.state.title
+        title: this.state.title,
+        album: this.state.album,
+        artist: this.state.artist,
+        genre: this.state.genre,
+        release_date: this.state.release_date
     }
     axios.post('http://127.0.0.1:8000/music/', { user })
         .then(res =>{
             console.log(res);
             console.log(res.data);
-        })
+        });
 };
 
 
@@ -32,7 +32,7 @@ render() {
     return(
     <form onSubmit={this.handleSubmit}>
         <label> Song Title:</label>
-        <input type ="text" name="title" onChange={this.handleChange}/>
+        <input type ="text" name="title"/>
         <label> Song Album:</label>
         <input type ="text" name="album" />
         <label> Song Artist:</label>
