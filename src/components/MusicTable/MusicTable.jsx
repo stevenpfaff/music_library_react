@@ -15,8 +15,12 @@ componentDidMount(){
 
 
 render() {
-    return(<ul>{this.state.songs.map(song => <li>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}</li>)}
-        </ul>
+    return(
+    <ul>
+        {this.state.songs.map(song => (
+    <li key={song.id}>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}</li>
+        ))}    
+    </ul>
     )
 }
 }

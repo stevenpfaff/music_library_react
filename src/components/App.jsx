@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './App.css'
 import TitleBar from "./TitleBar/TitleBar";
 import SearchBar from "./SearchBar/SearchBar";
-import axios from "axios";
+import MusicInput from './MusicTable/MusicInput'
 import MusicTable from "./MusicTable/MusicTable";
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -13,6 +13,7 @@ class App extends Component {
                 <TitleBar />
                 <SearchBar />
                 <MusicTable />
+                <MusicInput />
             </div>
         )}
 }
