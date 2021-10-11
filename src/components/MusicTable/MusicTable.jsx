@@ -1,16 +1,22 @@
 import React from 'react'
-import './MusicTable.css'
+import axios from 'axios';
 
-function MusicTable(props){
-    return(
-        <div className='row row-space'>
-            <div className='col-md-12' style={{padding: 0}}>
-                <div className="musictable-nav">
-                <h1>Music Table</h1>
-                </div>
-            </div>
-        </div>
-    )
+export default class MusicTable extends React.Component {
+    state = {
+        songs: [],
+    };
+
+componentDidMount(){
+    axios.get('http://127.0.0.1:8000/music/').then(res => {
+        console.log(res);
+        this.setState({ songs : res.data });
+    });
 }
 
-export default MusicTable;
+
+render() {
+    return(<ul>{this.state.songs.map(song => <li>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}</li>)}
+        </ul>
+    )
+}
+}
