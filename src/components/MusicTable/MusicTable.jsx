@@ -18,7 +18,7 @@ render() {
     return(
     <ul>
         {this.state.songs.map(song => (
-    <li key={song.id}>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}</li>
+    <li key={song.id}>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}<button onClick> Delete Song </button></li>
         ))}    
     </ul>
     )

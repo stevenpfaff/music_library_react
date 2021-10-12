@@ -10,7 +10,7 @@ export default class MusicTable extends React.Component {
         release_date: ''
     };
 
-handleSubmit = event => {
+addSong = event => {
     event.preventDefault();
 
     const user = {
@@ -27,10 +27,9 @@ handleSubmit = event => {
         });
 };
 
-
 render() {
     return(
-    <form onSubmit={this.handleSubmit}>
+    <form onSubmit={this.addSong}>
         <label> Song Title:</label>
         <input type ="text" name="title"/>
         <label> Song Album:</label>
