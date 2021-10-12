@@ -10,6 +10,7 @@ export default class MusicTable extends React.Component {
         release_date: ''
     };
 
+
 addSong = event => {
     event.preventDefault();
 
@@ -20,7 +21,8 @@ addSong = event => {
         genre: this.state.genre,
         release_date: this.state.release_date
     }
-    axios.post('http://127.0.0.1:8000/music/', { user })
+    axios
+        .post('http://127.0.0.1:8000/music/', { user })
         .then(res =>{
             console.log(res);
             console.log(res.data);
@@ -30,17 +32,18 @@ addSong = event => {
 render() {
     return(
     <form onSubmit={this.addSong}>
-        <label> Song Title:</label>
-        <input type ="text" name="title"/>
-        <label> Song Album:</label>
-        <input type ="text" name="album" />
-        <label> Song Artist:</label>
-        <input type ="text" name="artist" />
-        <label> Song Genre:</label>
-        <input type ="text" name="genre" />
-        <label> Song Release Date:</label>
-        <input type ="text" name="release_date" />
-        <button type="submit">Add Song</button>
+        <label> Song Title:</label><div>
+            </div>
+        <input type ="text" name="title"/><div>
+        <label> Song Album:</label></div>
+        <input type ="text" name="album"/><div>
+        <label> Song Artist:</label></div>
+        <input type ="text" name="artist"/><div>
+        <label> Song Genre:</label></div>
+        <input type ="text" name="genre"/><div>
+        <label> Song Release Date:</label></div>
+        <input type ="text" name="release_date"/><div>
+        </div><button type="submit">Add Song</button>
     </form>
     )
 }
