@@ -14,7 +14,7 @@ class MusicTable extends Component {
         this.getAllSongs();
     }
 
-    async getAllSongs(){
+    getAllSongs = async () => {
         let response = await axios.get('http://127.0.0.1:8000/music/')
         this.setState({
             songs: response.data
@@ -24,8 +24,7 @@ class MusicTable extends Component {
     deleteSong = async (songid) => {
         let response = await axios.delete('http://127.0.0.1:8000/music/' + songid + '/')
         this.getAllSongs(); 
-        return response.status; 
-         
+        return response.status;  
     }
 
 render() {

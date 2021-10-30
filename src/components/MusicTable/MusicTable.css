@@ -33,11 +33,18 @@
     display: flex;
     justify-content: space-evenly;
   }
-  
+
+  label,
   form * {
     font-size: 24px;
+    text-align: center;
   }
 
-  h1 {
+  h1,
+  h2 {
       text-align: center;
+  }
+
+  button {
+      align-self: center;
   }
