@@ -26,7 +26,7 @@ addSong = event => {
         release_date: this.state.release_date
     }
     axios
-        .post('http://127.0.0.1:8000/music/', { user })
+        .post(`http://127.0.0.1:8000/music/`)
         .then(res =>{
             console.log(res);
             console.log(res.data);
@@ -48,7 +48,7 @@ render() {
         <input type ="text" name="genre"onChange={this.handleChange}/><div>
         <label> Song Release Date:</label></div>
         <input type ="text" name="release_date"onChange={this.handleChange}/><div>
-        </div><button type="submit">Add Song</button>
+        </div><button onSubmit={this.addSong}>Add Song</button>
     </form>
     )
 }

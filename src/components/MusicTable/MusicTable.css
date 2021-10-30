@@ -1,22 +1,43 @@
-.musictable-nav {
-    background-color: aqua;
+.app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+  }
+  
+  table {
+    align-items: center;
+    border-collapse: collapse;
     width: 100%;
-}
-
-li {
-    padding-bottom : 0.2cm;
-    padding-left: 1cm;
+  }
+  
+  th,
+  td {
+    border: 2px solid black;
     text-align: center;
-}
+    padding: 8px;
+    font-size: 24px;
+  }
+  
+  th {
+    background-color: aqua;
+  }
+  
+  td {
+    background-color: lightblue;
+  }
+  
 
-label {
-    padding-bottom : 0.2cm;
-    padding-left: 1cm;
-    text-align: center;
-}
+  
+  form td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  form * {
+    font-size: 24px;
+  }
 
-h4 {
-    padding-bottom : 0.2cm;
-    padding-left: 1cm;
-    text-align: center;
-}
+  h1 {
+      text-align: center;
+  }

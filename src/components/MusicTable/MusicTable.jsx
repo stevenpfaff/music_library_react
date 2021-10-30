@@ -1,30 +1,66 @@
-import React from 'react'
+import React, {Component} from 'react'
 import axios from 'axios';
 import './MusicTable.css'
 
-export default class MusicTable extends React.Component {
-    state = {
-        songs: [],
-    };
+class MusicTable extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            songs:[]
+         }
+    }
 
-componentDidMount(){
-    axios.get('http://127.0.0.1:8000/music/').then(res => {
-        console.log(res);
-        this.setState({ songs : res.data });
-    });
-}
+    componentDidMount(){
+        this.getAllSongs();
+    }
 
+    async getAllSongs(){
+        let response = await axios.get('http://127.0.0.1:8000/music/')
+        this.setState({
+            songs: response.data
+        })
+    }
 
+    deleteSong = async (songid) => {
+        let response = await axios.delete('http://127.0.0.1:8000/music/' + songid + '/')
+        this.getAllSongs(); 
+        return response.status; 
+         
+    }
 
 render() {
     return(
-    <ul>
+    <div className="app-container">
         <h1> Song Library </h1>
-        <h4>Title, Album, Artist, Genre, Release Date</h4>
-        {this.state.songs.map(song => (
-    <li key={song.id}>{song.title}, {song.album}, {song.artist}, {song.genre}, {song.release_date}<button onClick> Delete Song </button></li>
-        ))}    
-    </ul>
-    )
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                    <th>Release Date</th>
+                    <th>Delete Song</th>
+                </tr>
+            </thead>
+                {this.state.songs.map((song) => (
+                    
+                <tbody>
+                    <tr>
+                    <td>{song.title}</td>
+                    <td>{song.album}</td>
+                    <td>{song.artist}</td>
+                    <td>{song.genre}</td>
+                    <td>{song.release_date}</td>
+                    <td><button onClick={()=>this.deleteSong(song.id)}>Delete Song</button></td>
+                    </tr>
+                </tbody>
+                
+                ))}
+            </table>
+        </div>
+    );
 }
 }
+
+export default MusicTable;

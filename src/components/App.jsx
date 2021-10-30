@@ -7,6 +7,13 @@ import MusicTable from "./MusicTable/MusicTable";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            songs: [],
+        }
+    }
+    
    render() {
         return (
             <div className = "App">
