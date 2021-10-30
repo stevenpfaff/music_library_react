@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import MusicTable from './MusicTable';
-import './MusicTable.css'
 
-class AddSong extends Component {
+class CreateSong extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -59,4 +57,4 @@ render() {
 }
 }
 
-export default AddSong
+export default CreateSong

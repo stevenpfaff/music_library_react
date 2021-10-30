@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './App.css'
 import TitleBar from "./TitleBar/TitleBar";
 import SearchBar from "./SearchBar/SearchBar";
-import AddSong from './MusicTable/AddSong'
+import CreateSong from './CreateSong/CreateSong'
 import MusicTable from "./MusicTable/MusicTable";
 import "bootstrap/dist/css/bootstrap.min.css"
 import axios from "axios";
@@ -44,7 +44,7 @@ class App extends Component {
                 <TitleBar />
                 <SearchBar />
                 <MusicTable getAllSongs={this.getAllSongs} deleteSong={this.deleteSong}/>
-                <AddSong addSong={this.addSong}/>
+                <CreateSong addSong={this.addSong}/>
             </div>
         )}
 }
