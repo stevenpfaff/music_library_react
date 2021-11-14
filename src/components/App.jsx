@@ -38,11 +38,24 @@ class App extends Component {
         return response.status;
       }
 
+    searchSong = (searchTerm) => {
+        const filteredList = this.state.songs.filter(function(song){
+            return song.name.toLowerCase() == searchTerm.toLowerCase() ||
+            song.artist.toLowerCase() == searchTerm.toLowerCase() ||
+            song.album.toLowerCase() == searchTerm.toLowerCase() ||
+            song.genre.toLowerCase() == searchTerm.toLowerCase() ||
+            song.release_date.toLowerCase() == searchTerm.toLowerCase()
+        })
+            this.setState({
+                songs : filteredList
+        })
+    }
+
    render() {
         return (
             <div className = "App">
                 <TitleBar />
-                <SearchBar />
+                <SearchBar searchSong={this.searchSong}/>
                 <MusicTable getAllSongs={this.getAllSongs} deleteSong={this.deleteSong}/>
                 <CreateSong addSong={this.addSong}/>
             </div>
