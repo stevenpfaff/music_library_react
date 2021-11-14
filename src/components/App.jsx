@@ -40,12 +40,13 @@ class App extends Component {
 
     searchSong = (searchTerm) => {
         const filteredList = this.state.songs.filter(function(song){
-            return song.name.toLowerCase() == searchTerm.toLowerCase() ||
-            song.artist.toLowerCase() == searchTerm.toLowerCase() ||
-            song.album.toLowerCase() == searchTerm.toLowerCase() ||
-            song.genre.toLowerCase() == searchTerm.toLowerCase() ||
-            song.release_date.toLowerCase() == searchTerm.toLowerCase()
-        })
+            return (
+            song.title.toLowerCase() === searchTerm.toLowerCase() ||
+            song.artist.toLowerCase() === searchTerm.toLowerCase() ||
+            song.album.toLowerCase() === searchTerm.toLowerCase() ||
+            song.genre.toLowerCase() === searchTerm.toLowerCase() ||
+            song.release_date.toLowerCase() === searchTerm.toLowerCase()
+        )})
             this.setState({
                 songs : filteredList
         })

@@ -20,6 +20,7 @@ class SearchBar extends Component {
         this.props.searchSong(this.state.searchQuery);
     }
 
+
     render() {
         return (
             <containter>
